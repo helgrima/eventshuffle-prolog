@@ -1,15 +1,18 @@
-:- dynamic event/2.
-:- dynamic when/2.
+% For Visual Studio Code
+start.
+
+:- dynamic occasion/2.
+:- dynamic happens/2.
 :- dynamic participant/2.
 :- dynamic votes/3.
 
-event(0, "Jake's secret party").
-event(1, "Bowling night").
-event(2, "Tabletop gaming").
+occasion(0, "Jake's secret party").
+occasion(1, "Bowling night").
+occasion(2, "Tabletop gaming").
 
-when(0, "2014-01-01").
-when(0, "2014-01-05").
-when(0, "2014-01-12").
+happens(0, "2014-01-01").
+happens(0, "2014-01-05").
+happens(0, "2014-01-12").
 
 participant(0, "John").
 participant(1, "Julia").
@@ -23,4 +26,9 @@ votes(2, 0).
 votes(3, 0).
 votes(4, 1).
 
+show_occasion(OccasionId, occasion(OccasionId, OccasionName, OccasionDate)):-
+    occasion(OccasionId, OccasionName),
+    happens(OccasionId, OccasionDate).
 
+list_occasion(occasion(OccasionId, OccasionName)):-
+    occasion(OccasionId, OccasionName).
